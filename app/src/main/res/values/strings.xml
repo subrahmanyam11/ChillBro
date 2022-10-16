@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">ChillBro</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">Email</string>
+    <string name="____________">***********</string>
+    <string name="next">Next</string>
+    <string name="signup">SignUp</string>
+    <string name="login">LogIn Screen</string>
+    <string name="enter_email">Enter email</string>
+    <string name="enter_password">Enter password</string>
+    <string name="post">Post</string>
+    <string name="add_tweet">Add Tweet</string>
+    <string name="new_tweet">New Tweet</string>
+    <string name="welcome">Welcome</string>
+    <string name="start">Start</string>
+    <string name="welcome_msg">Local is the New Global\nIndia\'s biggest localized content</string>
+    <string name="home_screen">Home Screen</string>
+    <string name="create_account">Create Account</string>
+</resources>

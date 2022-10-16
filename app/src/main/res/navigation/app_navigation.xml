@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/tweetsFrag">
+
+    <fragment
+        android:id="@+id/tweetsFrag"
+        android:name="com.brochill.chillbro.views.frags.TweetsFrag"
+        android:label="TweetsFrag" >
+        <action
+            android:id="@+id/action_tweetsFrag_to_loginFrag"
+            app:destination="@id/loginFrag" />
+        <action
+            android:id="@+id/action_tweetsFrag_to_postTweetFrag"
+            app:destination="@id/postTweetFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFrag"
+        android:name="com.brochill.chillbro.views.frags.LoginFrag"
+        android:label="LoginFrag" >
+        <action
+            android:id="@+id/action_loginFrag_to_createUserFrag"
+            app:destination="@id/createUserFrag" />
+        <action
+            android:id="@+id/action_loginFrag_to_tweetsFrag"
+            app:destination="@id/tweetsFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/createUserFrag"
+        android:name="com.brochill.chillbro.views.frags.CreateUserFrag"
+        android:label="CreateUserFrag" >
+        <action
+            android:id="@+id/action_createUserFrag_to_welcomeFrag"
+            app:destination="@id/welcomeFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFrag"
+        android:name="com.brochill.chillbro.views.frags.WelcomeFrag"
+        android:label="WelcomeFrag" >
+        <action
+            android:id="@+id/action_welcomeFrag_to_tweetsFrag"
+            app:destination="@id/tweetsFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/postTweetFrag"
+        android:name="com.brochill.chillbro.views.frags.PostTweetFrag"
+        android:label="PostTweetFrag" />
+</navigation>
