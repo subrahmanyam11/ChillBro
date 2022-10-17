@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.OnScrollListener
 import com.brochill.chillbro.R
 import com.brochill.chillbro.adapters.TweetsAdapter
 import com.brochill.chillbro.databinding.FragmentTweetsBinding
@@ -19,6 +21,7 @@ import com.brochill.chillbro.shared_perf.User
 class TweetsFrag : Fragment(R.layout.fragment_tweets), TweetsAdapter.AdapterItemClickListener {
 
     private lateinit var binding: FragmentTweetsBinding
+    private lateinit var tweetsLLM: LinearLayoutManager
     private lateinit var tweetsAdatper: TweetsAdapter
     private val user = User()
 
@@ -36,14 +39,15 @@ class TweetsFrag : Fragment(R.layout.fragment_tweets), TweetsAdapter.AdapterItem
         binding.apply {
 
             // remove//////////////////
-            toolbar.setOnClickListener{
+            logoutTweetsFrag.setOnClickListener{
                 user.LogoutUser(requireContext())
                 if (user.userTocken(requireContext()) == "null") findNavController().navigate(R.id.action_tweetsFrag_to_loginFrag)
             }
 
+            tweetsLLM = LinearLayoutManager(requireContext())
             recViewTweetsFrag.apply {
                 setHasFixedSize(true)
-                layoutManager = LinearLayoutManager(requireContext())
+                layoutManager = tweetsLLM
                 adapter = tweetsAdatper
 
             }
@@ -52,10 +56,16 @@ class TweetsFrag : Fragment(R.layout.fragment_tweets), TweetsAdapter.AdapterItem
 
             tweetViewModel.tweetsList.observe(viewLifecycleOwner){
                 tweetsAdatper.submitList(it)
-                Log.e("TAG", "onViewCreated: $it", )
             }
 
-            tweetViewModel.getTweets()
+            tweetViewModel.getTweets(requireContext())
+
+            recViewTweetsFrag.addOnScrollListener(object : OnScrollListener(){
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+//                        if(tweetsLLM.findLastCompletelyVisibleItemPosition() == tweetsLLM.itemCount-2) tweetViewModel.paginateTweets(requireContext())
+                }
+            })
 
         }
 

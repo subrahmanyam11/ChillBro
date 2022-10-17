@@ -2,18 +2,16 @@ package com.brochill.chillbro.shared_perf
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.os.UserManager
 
 class User {
 
     val userSaved = "com.chillbro.user"
 
-
     private val FIRST_NAME = "first_name"
     private val LAST_NAME = "last_name"
     private val USER_ID = "user_id"
     private val USER_EMAIL = "user_email"
-    private val TOCKEN = "tocken"
+    private val TOKEN = "token"
 
 
     // setter methods..
@@ -25,7 +23,7 @@ class User {
         editor.putString(LAST_NAME, last)
         editor.putString(USER_ID, id)
         editor.putString(USER_EMAIL, mail)
-        editor.putString(TOCKEN, tocken)
+        editor.putString(TOKEN, tocken)
         editor.apply()
 
     }
@@ -34,7 +32,7 @@ class User {
     // getter methods..
     fun userTocken(context: Context): String {
         val sharePref: SharedPreferences? = context.getSharedPreferences(userSaved, Context.MODE_PRIVATE)
-        return sharePref?.getString(TOCKEN, "null")!!
+        return sharePref?.getString(TOKEN, "null")!!
     }
     fun userId(context: Context): String {
         val sharePref: SharedPreferences? = context.getSharedPreferences(userSaved, Context.MODE_PRIVATE)

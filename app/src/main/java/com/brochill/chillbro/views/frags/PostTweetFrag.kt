@@ -27,10 +27,9 @@ class PostTweetFrag : Fragment(R.layout.fragment_post_tweet) {
 
             postNewTweetFrag.setOnClickListener {
                 if (msgNewTweetFrag.text.isEmpty()) return@setOnClickListener
-                tweetViewModel.addTweet(TweetsModel(msgNewTweetFrag.text.trim().toString(), "random", "1.0.3"))
+                tweetViewModel.addTweet(requireContext(), msgNewTweetFrag.text.toString().trim())
                 msgNewTweetFrag.setText("")
                 findNavController().popBackStack()
-                Toast.makeText(requireContext(), "Posted successfully", Toast.LENGTH_SHORT).show()
             }
 
 

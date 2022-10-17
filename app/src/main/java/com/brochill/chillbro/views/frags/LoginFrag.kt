@@ -36,7 +36,7 @@ class LoginFrag : Fragment(R.layout.fragment_login) {
                     return@setOnClickListener
                 }
                 pbLoginFrag.isVisible = true
-                authViewModel.loginUser(requireContext(), mailLoginFrag.text.trim().toString(), passwordLoginFrag.text.trim().toString())
+                authViewModel.loginUser(requireContext(), mailLoginFrag.text.toString().trim(), passwordLoginFrag.text.toString().trim())
           }
 
 
